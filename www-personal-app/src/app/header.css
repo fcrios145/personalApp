@@ -1,0 +1,26 @@
+header ul {
+  list-style: none;
+  display: inline;
+}
+
+header h1 {
+  display: inline-block;
+}
+
+header ul li {
+  display: inline-block;
+  margin: 0 5px 0 5px;
+}
+
+header ul a {
+  text-decoration: none;
+}
+
+header ul a:hover {
+  color: #000;
+}
+
+.header-top-bar { 
+  display: inline-block;
+  text-align: right;
+}
