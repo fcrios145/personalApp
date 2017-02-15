@@ -4,17 +4,17 @@ import './header.css';
 class Header extends Component {
   render() {
     return (
-        <header>
-          <h1>Francisco Personal App</h1>
-          <div className="header-top-bar">
-          <ul>
-            <li><a href="#">Gasto</a></li>
-            <li><a href="#">Tipos</a></li>
-            <li><a href="#">Categorias</a></li>
-            <li><a href="#">Dia cero</a></li>
-          </ul>
-          </div>
-        </header>
+        <div>
+            <header>
+                <h1>Francisco Rios</h1>
+                <ul className="topnav">
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </header>
+        </div>
     )
   }
 }

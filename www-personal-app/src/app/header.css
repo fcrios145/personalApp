@@ -1,26 +1,43 @@
-header ul {
-  list-style: none;
-  display: inline;
+header {
+    background-color: #333;
+    padding: 25px;
 }
 
 header h1 {
-  display: inline-block;
+    color: white;
+    display: inline;
 }
 
-header ul li {
-  display: inline-block;
-  margin: 0 5px 0 5px;
+/* Remove margins and padding from the list, and add a black background color */
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    display: inline;
 }
 
-header ul a {
-  text-decoration: none;
+/* Float the list items side by side */
+ul.topnav li {float: right;}
+
+/* Style the links inside the list items */
+ul.topnav li a {
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
 }
 
-header ul a:hover {
-  color: #000;
-}
+/* Change background color of links on hover */
+ul.topnav li a:hover {background-color: #555;}
 
-.header-top-bar { 
-  display: inline-block;
-  text-align: right;
+/* Hide the list item that contains the link that should open and close the topnav on small screens */
+ul.topnav li.icon {display: none;}
+
+body {
+    background-color: skyblue;
 }
