@@ -21,10 +21,10 @@ function requireAuth(nextState, replace) {
 
 const Routes = (props) => (
   <Router {...props}>
-    <Route path="/" component={App}>
+    <Route path="/login" component={Login} />
+    <Route path="/" onEnter={requireAuth} component={App}>
       <Route path="/about" component={About} onEnter={requireAuth} />
-      <Route path="/login" component={Login} />
-      <Route path="logout" component={Logout} />
+      <Route path="logout" component={Logout} onEnter={requireAuth}/>
     </Route>
   </Router>
 );

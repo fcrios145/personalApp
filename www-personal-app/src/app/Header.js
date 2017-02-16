@@ -2,7 +2,17 @@ import React, { Component } from 'react';
 import './header.css';
 import { Link } from 'react-router';
 
+import auth from '../utils/auth';
+
 class Header extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      loggedIn: auth.loggedIn()
+    }
+  }
+
   render() {
     return (
         <div>
@@ -10,10 +20,18 @@ class Header extends Component {
                 <h1>Francisco Rios</h1>
                 <ul className="topnav">
                   <li>
-                    <Link to="/">Home</Link>
-                    <Link to="/about">About</Link>
-                    <Link to="/login">Login</Link>
-                    <Link to="/logout">Logout</Link>
+                    <Link to='/login'>Login</Link>
+                  </li>
+                    {this.state.loggedIn && (
+                      <li>
+                        <Link to='/logout'>Logout</Link>
+                      </li>
+                    )}
+                  <li>
+                    <Link to='/'>Home</Link>
+                  </li>
+                  <li>
+                    <Link to='about'>About</Link>
                   </li>
                 </ul>
             </header>
