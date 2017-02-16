@@ -1,6 +1,7 @@
 header {
     background-color: #333;
     padding: 25px;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 2.5);
 }
 
 header h1 {
@@ -38,6 +39,3 @@ ul.topnav li a:hover {background-color: #555;}
 /* Hide the list item that contains the link that should open and close the topnav on small screens */
 ul.topnav li.icon {display: none;}
 
-body {
-    background-color: skyblue;
-}
