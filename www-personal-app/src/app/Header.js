@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './header.css';
+import { Link } from 'react-router';
 
 class Header extends Component {
   render() {
@@ -8,10 +9,11 @@ class Header extends Component {
             <header>
                 <h1>Francisco Rios</h1>
                 <ul className="topnav">
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">News</a></li>
-                    <li><a href="#">About</a></li>
+                  <li>
+                    <Link to="/">Home</Link>
+                    <Link to="/about">About</Link>
+                    <Link to="/login">Login</Link>
+                  </li>
                 </ul>
             </header>
         </div>
