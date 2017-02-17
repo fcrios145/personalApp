@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
+import './gasto.css';
+import moment from 'moment';
 
 class Gasto extends Component {
+
+  constructor(props) {
+    super(props);
+    const today = moment().format('YYYY-MM-DD');
+    this.state = {
+      fecha: today,
+      importe: 0.00
+    }
+  }
 
   handleSave = (e) => {
     e.preventDefault();
@@ -10,12 +21,27 @@ class Gasto extends Component {
     return (
       <div className="tron">
         <h2>Gasto</h2>
-        <form onSubmit={(e) => this.handleSave(e)}>
+        <form className="form-gasto" onSubmit={(e) => this.handleSave(e)}>
 
           <label htmlFor="importe">Importe</label>
-          <input type="numeric" id="importe" name="importe" placeholder="Importe"/>
+          <input type="number" id="importe" name="importe" placeholder="Importe"/>
 
-          <button>Save</button>
+          <label htmlFor="fecha">Fecha</label>
+          <input readOnly value={this.state.fecha} type="date" id="fecha" name="fecha" placeholder="Fecha"/>
+
+          <label htmlFor="nota">Nota</label>
+          <textarea id="nota" name="nota" cols="30" rows="5"></textarea>
+
+          <label htmlFor="observacion">Observación</label>
+          <textarea id="observacion" name="observacion" cols="30" rows="5"></textarea>
+
+          <label htmlFor="categoria">Categoria</label>
+          <input type="text" id="categoria" name="categoria" placeholder="Categoria"/>
+
+          <label htmlFor="tipo">Tipo</label>
+          <input type="text" id="tipo" name="tipo" placeholder="Tipo"/>
+
+          <input type="submit" value="Save"/>
         </form>
       </div>
     )
