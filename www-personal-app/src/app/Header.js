@@ -18,22 +18,21 @@ class Header extends Component {
         <div>
             <header>
                 <h1>Francisco Rios</h1>
-                <ul className="topnav">
-                  <li>
-                    <Link to='/login'>Login</Link>
-                  </li>
-                    {this.state.loggedIn && (
-                      <li>
-                        <Link to='/logout'>Logout</Link>
-                      </li>
-                    )}
-                  <li>
-                    <Link to='/'>Home</Link>
-                  </li>
-                  <li>
-                    <Link to='about'>About</Link>
-                  </li>
-                </ul>
+                {this.state.loggedIn && (
+                  <ul className="topnav">
+                    <li>
+                      <Link to='/logout'>
+                        <i className="fa fa-sign-out" aria-hidden="true"></i>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='about'>About</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>Dashboard</Link>
+                    </li>
+                  </ul>
+                )}
             </header>
         </div>
     )

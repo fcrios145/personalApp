@@ -9,7 +9,8 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loggedIn: auth.loggedIn()
+      loggedIn: auth.loggedIn(),
+      errorLogin: false
     }
   }
 
@@ -19,8 +20,15 @@ class Login extends Component {
     })
   }
 
+  changeUsername = (e) => {
+    this.setState({
+      errorLogin: false
+    })
+  }
+
   componentWillMount() {
-    auth.onChange = this.updateAuth;
+    /*auth.onChange = this.updateAuth;*/
+    this.updateAuth()
     auth.login();
   }
 
@@ -31,7 +39,7 @@ class Login extends Component {
 
     auth.login(username, password, (loggedIn) => {
       if (!loggedIn){
-        return this.setState({error : true})
+        return this.setState({errorLogin : true})
       }
       const { location } = this.props;
       if(location.state && location.state.nextPathName) {
@@ -39,8 +47,6 @@ class Login extends Component {
       } else {
         this.props.router.replace('/')
       }
-      alert(auth.getToken());
-
     })
 
   }
@@ -56,7 +62,7 @@ class Login extends Component {
               <form ref={(input) => this.loginForm = input} onSubmit={(e) => this.handleLogin(e)} className="form form-login">
                 <div className="form-field">
                   <label className="user" htmlFor="login-username"><span className="hidden">Username</span></label>
-                  <input ref={(input) => this.username = input} id="login-username" type="text" className="form-input" placeholder="Username" required />
+                  <input onChange={(e) => this.changeUsername(e)} ref={(input) => this.username = input} id="login-username" type="text" className="form-input" placeholder="Username" required />
                 </div>
 
                 <div className="form-field">
@@ -68,6 +74,9 @@ class Login extends Component {
                   <input type="submit" value="Log in" />
                 </div>
               </form>
+              {this.state.errorLogin && (
+                <p className="text--center">Usuario o contraseña incorrecta</p>
+              )}
             </div>
           </div>
         </div>

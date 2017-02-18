@@ -6,6 +6,7 @@ import App from './app/App';
 import About from './app/About';
 import Login from './login/Login';
 import Logout from './login/Logout';
+import Gasto from './gasto/Gasto';
 
 import auth from './utils/auth';
 
@@ -25,6 +26,7 @@ const Routes = (props) => (
     <Route path="/" onEnter={requireAuth} component={App}>
       <Route path="/about" component={About} onEnter={requireAuth} />
       <Route path="logout" component={Logout} onEnter={requireAuth}/>
+      <Route path="/gasto" component={Gasto} onEnter={requireAuth}/>
     </Route>
   </Router>
 );
