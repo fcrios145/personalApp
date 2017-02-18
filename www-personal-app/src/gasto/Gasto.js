@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
-import './gasto.css';
-import moment from 'moment';
+import React, { Component } from 'react'
+import './gasto.css'
+import moment from 'moment'
+
+import Modal from '../Helpers/Modal'
+import Categoria from '../categoria/Categoria'
 
 class Gasto extends Component {
 
@@ -17,32 +20,36 @@ class Gasto extends Component {
     e.preventDefault();
   }
 
+  modalCategoria = (e) => {
+    this.modalCategoriaInput.myModal.style.display = 'block'
+    console.log(this.modalCategoriaInput)
+  }
+
   render() {
     return (
       <div className="tron">
         <h2>Gasto</h2>
-        <form className="form-gasto" onSubmit={(e) => this.handleSave(e)}>
+        <form className="forms" onSubmit={(e) => this.handleSave(e)}>
 
-          <label htmlFor="importe">Importe</label>
           <input type="number" id="importe" name="importe" placeholder="Importe"/>
 
-          <label htmlFor="fecha">Fecha</label>
           <input readOnly value={this.state.fecha} type="date" id="fecha" name="fecha" placeholder="Fecha"/>
 
-          <label htmlFor="nota">Nota</label>
-          <textarea id="nota" name="nota" cols="30" rows="5"></textarea>
+          <textarea placeholder="Nota" id="nota" name="nota" cols="30" rows="5"></textarea>
 
-          <label htmlFor="observacion">Observación</label>
-          <textarea id="observacion" name="observacion" cols="30" rows="5"></textarea>
+          <textarea placeholder="Observación" id="observacion" name="observacion" cols="30" rows="5"></textarea>
 
-          <label htmlFor="categoria">Categoria</label>
-          <input type="text" id="categoria" name="categoria" placeholder="Categoria"/>
+          <input type="text" id="categoria" name="categoria" placeholder="Categoria" className="input-with-plus"/>
+          <i onClick={(e) => this.modalCategoria(e)} className="fa-black fa fa-plus fa-2x" aria-hidden="true"></i>
 
-          <label htmlFor="tipo">Tipo</label>
           <input type="text" id="tipo" name="tipo" placeholder="Tipo"/>
 
-          <input type="submit" value="Save"/>
+          <input type="submit" value="Guardar"/>
         </form>
+        <Modal ref={(i) => this.modalCategoriaInput = i}>
+          <Categoria open={true}></Categoria>
+        </Modal>
+
       </div>
     )
   }
