@@ -10,8 +10,10 @@ import Gasto from './gasto/Gasto'
 import Categoria from './categoria/Categoria'
 import TipoGasto from './tipoGasto/TipoGasto'
 
-
 import auth from './utils/auth';
+
+/*REDUX*/
+
 
 
 function requireAuth(nextState, replace) {

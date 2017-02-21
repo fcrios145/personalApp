@@ -18,12 +18,7 @@ class Gasto extends Component {
 
   handleSave = (e) => {
     e.preventDefault();
-  }
-
-  modalCategoria = (e) => {
-    this.modalCategoriaInput.myModal.style.display = 'block'
-    console.log(this.modalCategoriaInput)
-  }
+  };
 
   render() {
     return (
@@ -40,15 +35,11 @@ class Gasto extends Component {
           <textarea placeholder="Observación" id="observacion" name="observacion" cols="30" rows="5"></textarea>
 
           <input type="text" id="categoria" name="categoria" placeholder="Categoria" className="input-with-plus"/>
-          <i onClick={(e) => this.modalCategoria(e)} className="fa-black fa fa-plus fa-2x" aria-hidden="true"></i>
 
           <input type="text" id="tipo" name="tipo" placeholder="Tipo"/>
 
           <input type="submit" value="Guardar"/>
         </form>
-        <Modal ref={(i) => this.modalCategoriaInput = i}>
-          <Categoria open={true}></Categoria>
-        </Modal>
 
       </div>
     )
