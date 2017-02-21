@@ -12,9 +12,6 @@ import TipoGasto from './tipoGasto/TipoGasto'
 
 import auth from './utils/auth';
 
-/*REDUX*/
-
-
 
 function requireAuth(nextState, replace) {
     if (!auth.loggedIn()) {

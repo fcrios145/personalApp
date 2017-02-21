@@ -11,21 +11,19 @@ class Modal extends Component {
     }
   }
 
-  componentDidMount() {
-    this.setState({
-      modalCategoriaVisibility: this.props.open
-    })
-  }
-
   close(e) {
-    this.setState({
-      modalCategoriaVisibility: false
-    })
+    e.preventDefault()
+
+    if (this.props.onClose) {
+      this.props.onClose()
+    }
   }
 
   render() {
+    if (this.props.isOpen === false)
+      return null
     return(
-      <div ref={(i) => this.myModal = i} id="myModal" className={"modal " + (this.state.modalCategoriaVisibility ? 'show' : 'hide')}>
+      <div ref={(i) => this.myModal = i} id="myModal" className='modal show'>
         <div className="modal-content">
           <span onClick={(e) => this.close(e)} className="close">&times;</span>
           {this.props.children}
