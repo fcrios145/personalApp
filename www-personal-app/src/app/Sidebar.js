@@ -10,6 +10,7 @@ class Sidebar extends Component {
           <li><Link to="/gasto">Gasto</Link></li>
           <li><Link to="/categoria">Categoría</Link></li>
           <li><Link to="/tipo_gasto">Tipo de gasto</Link></li>
+          <li><Link to="/balance">Balance</Link></li>
         </ul>
       </div>
     )

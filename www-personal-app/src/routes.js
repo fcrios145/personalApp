@@ -9,6 +9,7 @@ import Logout from './login/Logout'
 import Gasto from './gasto/Gasto'
 import Categoria from './categoria/Categoria'
 import TipoGasto from './tipoGasto/TipoGasto'
+import Balance from './balance/Balance'
 
 import auth from './utils/auth';
 
@@ -31,6 +32,7 @@ const Routes = (props) => (
       <Route path="/gasto" component={Gasto} onEnter={requireAuth}/>
       <Route path="/categoria" component={Categoria} onEnter={requireAuth}/>
       <Route path="/tipo_gasto" component={TipoGasto} onEnter={requireAuth}/>
+      <Route path="/balance" component={Balance} onEnter={requireAuth}/>
     </Route>
   </Router>
 );
