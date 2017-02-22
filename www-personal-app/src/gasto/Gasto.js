@@ -51,7 +51,7 @@ class Gasto extends Component {
           <i onClick={(e) => this.openModal(e)} className="fa-black fa fa-plus fa-2x" aria-hidden="true"></i>
 
 
-          <input type="text" id="tipo" name="tipo" placeholder="Tipo"/>
+          <input type="text" id="tipo" name="tipo" placeholder="Tipo de gasto"/>
 
           <input type="submit" value="Guardar"/>
         </form>

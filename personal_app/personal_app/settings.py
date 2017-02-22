@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #Personal apps
+    'balance',
 ]
 
 MIDDLEWARE = [
@@ -74,15 +77,19 @@ WSGI_APPLICATION = 'personal_app.wsgi.application'
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'personal_app',
+    #     'USER': 'root',
+    #     'PASSWORD': 'rios',
+    #     'HOST': 'localhost',
+    #     'OPTIONS': {
+    #             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+    #         }
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'personal_app',
-        'USER': 'root',
-        'PASSWORD': 'rios',
-        'HOST': 'localhost',
-        'OPTIONS': {
-                'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-            }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'personal_app_db',
     }
 }
 
