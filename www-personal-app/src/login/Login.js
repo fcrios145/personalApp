@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
-import './login.css';
-import auth from '../utils/auth';
-import Header from '../app/Header';
+import React, { Component } from 'react'
+import './login.css'
+import auth from '../utils/auth'
+import Header from '../app/Header'
+import $ from 'jquery'
+import axios from 'axios'
 
 
 class Login extends Component {
@@ -10,7 +12,8 @@ class Login extends Component {
     super(props);
     this.state = {
       loggedIn: auth.loggedIn(),
-      errorLogin: false
+      errorLogin: false,
+      token: ''
     }
   }
 
@@ -32,6 +35,59 @@ class Login extends Component {
     auth.login();
   }
 
+  authAxios() {
+    axios.request({
+      url: "/o/token/",
+      method: "post",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      baseURL: "http://localhost:8000/",
+      data: {
+        grant_type: "password",
+        username: "kriz",
+        password: "rioslopez"
+      }
+    }).then(function(res) {
+      console.log(res);
+    });
+  }
+
+  authAjax() {
+    $.ajax({
+
+      // The URL to process the request
+      url : 'http://localhost:8000/o/token/',
+      type : 'POST',
+      data : {
+        grant_type: "password",
+        client_id : "a9m0Gqb2SiCArP8B9D1kacdUDKvVBo1kV8kQBrTZ",
+        username: "pancho",
+        password: "rioslopez"
+      },
+
+      dataType: "json",
+      success: (r) => {
+        console.log(r);
+        this.setState({
+          token: r.access_token
+        })
+      },
+      /*success: function(response) {
+        console.log(response);
+        this.setState({
+          token: response.access_token
+        })
+      }*/
+
+    });
+  }
+
+  probarAuth = (e) => {
+    e.preventDefault()
+    this.authAjax()
+  }
+
   handleLogin = (e) => {
     e.preventDefault();
     const username = this.username.value;
@@ -49,6 +105,23 @@ class Login extends Component {
       }
     })
 
+  }
+
+  users = (e) => {
+    e.preventDefault()
+    $.ajax({
+      // The URL to process the request
+      url : 'http://localhost:8000/users/',
+      type : 'GET',
+      headers: {
+        "Authorization": 'Bearer ' + this.state.token
+      },
+      dataType: "json",
+      success: function(response) {
+        console.log(response);
+      }
+
+    });
   }
 
   render() {
@@ -73,6 +146,8 @@ class Login extends Component {
                 <div className="form-field">
                   <input type="submit" value="Log in" />
                 </div>
+                <button onClick={(e) => this.probarAuth(e)} type="button">Probar auth</button>
+                <button type="button" onClick={(e) => this.users(e)}>Usuarios</button>
               </form>
               {this.state.errorLogin && (
                 <p className="text--center">Usuario o contraseña incorrecta</p>
