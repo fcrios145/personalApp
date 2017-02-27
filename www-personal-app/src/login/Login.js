@@ -36,17 +36,20 @@ class Login extends Component {
   }
 
   authAxios() {
+
+    axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+    const username = this.username.value;
+    const password = this.password.value;
+    const grant_type = 'password'
+    const client_id = 'a9m0Gqb2SiCArP8B9D1kacdUDKvVBo1kV8kQBrTZ'
     axios.request({
-      url: "/o/token/",
-      method: "post",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      baseURL: "http://localhost:8000/",
+      url: "http://localhost:8000/o/token",
+      method: "POST",
       data: {
-        grant_type: "password",
-        username: "kriz",
-        password: "rioslopez"
+        grant_type,
+        username,
+        password,
+        client_id
       }
     }).then(function(res) {
       console.log(res);
@@ -54,16 +57,20 @@ class Login extends Component {
   }
 
   authAjax() {
+    const username = this.username.value;
+    const password = this.password.value;
+    const grant_type = 'password'
+    const client_id = 'a9m0Gqb2SiCArP8B9D1kacdUDKvVBo1kV8kQBrTZ'
     $.ajax({
 
       // The URL to process the request
       url : 'http://localhost:8000/o/token/',
       type : 'POST',
       data : {
-        grant_type: "password",
-        client_id : "a9m0Gqb2SiCArP8B9D1kacdUDKvVBo1kV8kQBrTZ",
-        username: "pancho",
-        password: "rioslopez"
+        grant_type,
+        client_id,
+        username,
+        password
       },
 
       dataType: "json",
@@ -85,7 +92,8 @@ class Login extends Component {
 
   probarAuth = (e) => {
     e.preventDefault()
-    this.authAjax()
+    //this.authAjax()
+    this.authAxios()
   }
 
   handleLogin = (e) => {
