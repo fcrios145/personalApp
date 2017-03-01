@@ -1,3 +1,6 @@
+import $ from 'jquery'
+import axios, { baseURL, client_id } from './axiosInstance'
+
 module.exports = {
     login(email, pass, cb) {
         cb = arguments[arguments.length - 1]
@@ -35,15 +38,40 @@ module.exports = {
     onChange() {}
 }
 
-function pretendRequest(email, pass, cb) {
-    setTimeout(() => {
-        if (email === 'kriz145' && pass === 'jirameki22') {
-            cb({
-                authenticated: true,
-                token: Math.random().toString(36).substring(7)
-            })
-        } else {
-            cb({ authenticated: false })
-        }
-    }, 0)
+function pretendRequest(username, password, cb) {
+    //setTimeout(() => {
+        //if (email === 'kriz145' && pass === 'jirameki22') {
+            //cb({
+                //authenticated: true,
+                //token: Math.random().toString(36).substring(7)
+            //})
+        //} else {
+            //cb({ authenticated: false })
+        //}
+    //}, 0)
+
+    const grant_type = 'password'
+    $.ajax({
+      url : baseURL + 'o/token/',
+      type : 'POST',
+      dataType: "json",
+      data : {
+        grant_type,
+        client_id,
+        username,
+        password
+      },
+      success: (response) => {
+        cb({
+          authenticated: true,
+          token: response.access_token
+        })
+        //localStorage.token = response.access_token
+      },
+      error: (response) => {
+        cb({
+          authenticated: false
+        })
+      }
+    });
 }
