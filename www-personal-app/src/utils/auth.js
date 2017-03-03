@@ -1,5 +1,5 @@
 import $ from 'jquery'
-import axios, { baseURL, client_id } from './axiosInstance'
+import { baseURL, client_id } from './axiosInstance'
 
 module.exports = {
     login(email, pass, cb) {
@@ -39,17 +39,6 @@ module.exports = {
 }
 
 function pretendRequest(username, password, cb) {
-    //setTimeout(() => {
-        //if (email === 'kriz145' && pass === 'jirameki22') {
-            //cb({
-                //authenticated: true,
-                //token: Math.random().toString(36).substring(7)
-            //})
-        //} else {
-            //cb({ authenticated: false })
-        //}
-    //}, 0)
-
     const grant_type = 'password'
     $.ajax({
       url : baseURL + 'o/token/',

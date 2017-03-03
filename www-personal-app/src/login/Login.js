@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import './login.css'
 import auth from '../utils/auth'
 import Header from '../app/Header'
-import $ from 'jquery'
-import axios, { baseURL, client_id } from '../utils/axiosInstance'
+//import axios from '../utils/axiosInstance'
 
 class Login extends Component {
 
@@ -34,31 +33,9 @@ class Login extends Component {
     //auth.login();
   }
 
-  getAuth() {
-    const username = this.username.value;
-    const password = this.password.value;
-    const grant_type = 'password'
-    $.ajax({
-      url : baseURL + 'o/token/',
-      type : 'POST',
-      dataType: "json",
-      data : {
-        grant_type,
-        client_id,
-        username,
-        password
-      },
-      success: (response) => {
-        localStorage.token = response.access_token
-      }
-      //implementar metodo cuando no sea usuario correcto, El error
-    });
-  }
-
   probarAuth = (e) => {
     e.preventDefault()
     this.getAuth()
-    //this.authAxios()
   }
 
   handleLogin = (e) => {
@@ -77,9 +54,7 @@ class Login extends Component {
         this.props.router.replace('/')
       }
     })
-
   }
-
 
   render() {
     return (

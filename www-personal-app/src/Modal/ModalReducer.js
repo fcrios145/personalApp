@@ -1,4 +1,4 @@
-import { setVisibility, SET_VISIBILITY } from './ModalActions'
+import { SET_VISIBILITY } from './ModalActions'
 
 const initialState = {
   visibility: false
