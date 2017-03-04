@@ -1,4 +1,4 @@
-import { SAVE } from './CategoriaActions'
+import { ADD_CATEGORIA } from './CategoriaActions'
 
 const initialState = {
   descripcion: '' 
@@ -6,7 +6,7 @@ const initialState = {
 
 function categoria(state = initialState, action) {
   switch (action.type) {
-    case SAVE:
+    case ADD_CATEGORIA:
       return Object.assign({}, state, {
         decripcion: action.decripcion
       })
