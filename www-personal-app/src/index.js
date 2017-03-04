@@ -10,6 +10,7 @@ import './index.css';
 import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
+import thunkMiddleware from 'redux-thunk'
 
 import reducers from './Modal/ModalReducer'
 import Routes from './routes';
