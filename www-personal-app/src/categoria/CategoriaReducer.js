@@ -1,18 +1,18 @@
 import { ADD_CATEGORIA } from './CategoriaActions'
 
 const initialState = {
-  descripcion: '' 
+  descripcion: 'hola' 
 }
 
-function categoria(state = initialState, action) {
+function categoriaReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_CATEGORIA:
       return Object.assign({}, state, {
-        decripcion: action.decripcion
+        descripcion: action.descripcion
       })
     default:
       return state
   }
 }
 
-export default modalApp
+export default categoriaReducer
