@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { saveCategoria, postCategoria } from './CategoriaActions'
+import { postCategoria } from './CategoriaActions'
 import Categoria from './Categoria'
 
 const mapStateToProps = (state, ownProps) => {

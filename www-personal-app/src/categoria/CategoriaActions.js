@@ -13,7 +13,10 @@ export function saveCategoria(descripcion) {
 
 export function postCategoria(categoria) {
   return function(dispatch) {
-    return axios.get('/users/').then((response) => {
+    return axios.post('api/v1/categorias/', {
+        nombre: categoria
+      }
+    ).then((response) => {
       dispatch(saveCategoria("hola"))
       return response
     })

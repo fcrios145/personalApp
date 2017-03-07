@@ -22,10 +22,11 @@ from rest_framework.authtoken import views as viewsDRF
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
+router.register(r'categorias', views.CategoriaViewSet)
 
 
 urlpatterns = [
-    url(r'^', include(router.urls)),
+    url(r'^api/v1/', include(router.urls)),
     url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     url(r'^admin/', admin.site.urls),
     url(r'^example/$', views.example_view),
