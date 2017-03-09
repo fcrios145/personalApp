@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-const Categoria = ({ addCategoria, fetchAll, categorias }) => {
+const Categoria = ({ addCategoria }) => {
   let inputDescripcion
 
   return(
@@ -12,12 +12,6 @@ const Categoria = ({ addCategoria, fetchAll, categorias }) => {
     } }>
         <input ref={ node => {inputDescripcion = node} } type="text" id="nombre" name="nombre" placeholder="Categoria"/>
         <input type="submit" value="Guardar"/>
-        <button onClick={fetchAll} type="button">Get Categorias</button>
-        <ul>
-          {categorias.map(categoria => 
-            <li key={categoria.id}>{categoria.nombre}</li>
-          )}
-        </ul>
       </form>
     </div>
   )
@@ -25,14 +19,7 @@ const Categoria = ({ addCategoria, fetchAll, categorias }) => {
 }
 
 Categoria.propTypes = {
-  addCategoria: PropTypes.func.isRequired,
-  fetchAll: PropTypes.func.isRequired,
-  categorias: PropTypes.arrayOf(PropTypes.shape({
-    created_date: PropTypes.string.isRequired,
-    modified_date: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
-    nombre: PropTypes.string.isRequired
-  }).isRequired).isRequired
+  addCategoria: PropTypes.func.isRequired
 }
 
 export default Categoria;

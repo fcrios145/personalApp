@@ -2,6 +2,7 @@
 import axios from '../utils/axiosInstance'
 
 export const ADD_CATEGORIA = 'ADD_CATEGORIA'
+export const REQUEST_ADD_CATEGORIA = 'REQUEST_ADD_CATEGORIA'
 export const REQUEST_ALL_CATEGORIAS = 'REQUEST_ALL_CATEGORIAS'
 export const ERROR_ALL_CATEGORIAS = 'ERROR_ALL_CATEGORIAS'
 export const RECEIVE_ALL_CATEGORIAS = 'RECEIVE_ALL_CATEGORIAS'
@@ -26,20 +27,27 @@ export function postCategoria(categoria) {
   }
 }
 
-export function requestAllCategorias() {
+export function requestPostCategoria(categoria) {
+  return {
+    type: REQUEST_ADD_CATEGORIA,
+    categoria
+  }
+}
+
+function requestAllCategorias() {
   return {
     type: REQUEST_ALL_CATEGORIAS
   }
 }
 
-export function erroAllCategorias(data) {
+function erroAllCategorias(data) {
   return {
     type: ERROR_ALL_CATEGORIAS,
     data
   }
 }
 
-export function receiveAllCategorias(data) {
+function receiveAllCategorias(data) {
   return {
     type: RECEIVE_ALL_CATEGORIAS,
     data
@@ -49,8 +57,12 @@ export function receiveAllCategorias(data) {
 export function fetchAllCategorias() {
   return function(dispatch) {
     dispatch(requestAllCategorias())
-    return axios.get('/categorias/').then((response) => {
-      dispatch(receiveAllCategorias(response.data))
-    })
+    return axios.get('/categorias/')
+      .then((response) => {
+        dispatch(receiveAllCategorias(response.data))
+      })
+      .catch((response) => {
+        dispatch(erroAllCategorias(response.data))
+      })
   }
 }
