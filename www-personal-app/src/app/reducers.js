@@ -4,7 +4,7 @@ import { routerReducer } from 'react-router-redux'
 import categoriaReducer from '../categoria/CategoriaReducer'
 
 const rootReducer = combineReducers({
-    categoriaReducer,
+    categoria: categoriaReducer,
     routing: routerReducer
 })
 

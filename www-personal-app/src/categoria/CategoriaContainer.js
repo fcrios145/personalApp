@@ -1,10 +1,10 @@
 import { connect } from 'react-redux'
-import { postCategoria } from './CategoriaActions'
+import { postCategoria, fetchAllCategorias } from './CategoriaActions'
 import Categoria from './Categoria'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    active: ownProps.filter === state.visibilityFilter
+    categorias: state.categoria.items
   }
 }
 
@@ -12,6 +12,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     addCategoria: (categoria) => {
       dispatch(postCategoria(categoria)).then((r) => console.log(r))
+    },
+    fetchAll: () => {
+      dispatch(fetchAllCategorias())
     }
   }
 }
@@ -22,3 +25,4 @@ const CategoriaContainer = connect(
 )(Categoria)
 
 export default CategoriaContainer
+

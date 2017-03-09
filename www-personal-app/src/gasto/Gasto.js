@@ -3,7 +3,7 @@ import './gasto.css'
 import moment from 'moment'
 
 import Modal from '../Modal/Modal'
-import Categoria from '../categoria/Categoria'
+import CategoriaContainer from '../categoria/CategoriaContainer'
 
 class Gasto extends Component {
 
@@ -56,7 +56,7 @@ class Gasto extends Component {
           <input type="submit" value="Guardar"/>
         </form>
         <Modal isOpen={this.state.isModalOpen} onClose={ () => this.closeModal()}>
-          <Categoria></Categoria>
+          <CategoriaContainer></CategoriaContainer>
         </Modal>
       </div>
     )
