@@ -8,6 +8,7 @@ import Login from './login/Login'
 import Logout from './login/Logout'
 import Gasto from './gasto/Gasto'
 import CategoriaContainer from './categoria/CategoriaContainer'
+import CategoriaListContainer from './categoria/CategoriaListContainer'
 import TipoGasto from './tipoGasto/TipoGasto'
 import Balance from './balance/Balance'
 import Ingreso from './ingreso/Ingreso'
@@ -31,10 +32,11 @@ const Routes = (props) => (
       <Route path="/about" component={About} onEnter={requireAuth} />
       <Route path="logout" component={Logout} onEnter={requireAuth}/>
       <Route path="/gasto" component={Gasto} onEnter={requireAuth}/>
-      <Route path="/categoria" component={CategoriaContainer} onEnter={requireAuth}/>
+      <Route path="/categoria" component={CategoriaListContainer} onEnter={requireAuth}/>
       <Route path="/tipo_gasto" component={TipoGasto} onEnter={requireAuth}/>
       <Route path="/balance" component={Balance} onEnter={requireAuth}/>
       <Route path="/ingreso" component={Ingreso} onEnter={requireAuth}/>
+      <Route path="/addCategoria" component={CategoriaContainer} onEnter={requireAuth}/>
     </Route>
   </Router>
 );
