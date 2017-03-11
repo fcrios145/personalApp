@@ -14,3 +14,11 @@
 	Despues de eso investigar practicas con tareas asyncronas, para no repetir tanto codigo.. Buscar patrones..
 	
 * Investigar como implementar immutable al proyecto
+
+
+### Cosas por recordar
+
+La base de datos de mysql a crear tiene que tener la colacion por default en Latin1
+Aplicacion creada en applications de oauth2 es:
+ * public
+ * Resource owned password
