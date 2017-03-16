@@ -5,7 +5,7 @@ import { Link } from 'react-router'
 
 class CategoriaList extends Component {
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchAll()
   }
 
