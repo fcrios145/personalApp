@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    addCategoria: (categoria, e) => {
+    addCategoria: (categoria) => {
       return dispatch(postCategoria(categoria))
     },
     fetchAll: () => {

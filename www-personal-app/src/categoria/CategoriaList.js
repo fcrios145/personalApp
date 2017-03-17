@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react'
 import { Link } from 'react-router'
+import './categoriaList.css'
 
 class CategoriaList extends Component {
 
@@ -13,11 +14,20 @@ class CategoriaList extends Component {
     const categorias = this.props.categorias
     return (
       <div>
-        <ul>
-          {categorias.map(categoria =>
-            <li key={categoria.id}>{categoria.nombre}</li>
-          )}
-        </ul>
+        <table>
+          <thead>
+            <tr>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            {categorias.map(categoria =>
+              <tr key={categoria.id}>
+                <td>{categoria.nombre}</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
         <Link to='/addCategoria'>
           Agregar categoria
         </Link>
@@ -33,7 +43,5 @@ CategoriaList.propTypes = {
     nombre: React.PropTypes.string.isRequired
   }).isRequired).isRequired
 }
-
-
 
 export default CategoriaList
