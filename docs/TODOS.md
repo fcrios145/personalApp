@@ -15,6 +15,8 @@
 	
 * Investigar como implementar immutable al proyecto
 
+* Investigar como cachar los errores que manda la api de django al tratar de guardar datos en un formulario
+
 
 ### Cosas por recordar
 
