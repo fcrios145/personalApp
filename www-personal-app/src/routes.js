@@ -32,7 +32,9 @@ const Routes = (props) => (
       <Route path="/about" component={About} onEnter={requireAuth} />
       <Route path="logout" component={Logout} onEnter={requireAuth}/>
       <Route path="/gasto" component={Gasto} onEnter={requireAuth}/>
-      <Route path="/categoria" component={CategoriaListContainer} onEnter={requireAuth}/>
+      <Route path="/categoria" component={CategoriaListContainer} onEnter={requireAuth}>
+        <Route path="add" component={CategoriaContainer} onEnter={requireAuth}/>
+      </Route>
       <Route path="/tipo_gasto" component={TipoGasto} onEnter={requireAuth}/>
       <Route path="/balance" component={Balance} onEnter={requireAuth}/>
       <Route path="/ingreso" component={Ingreso} onEnter={requireAuth}/>

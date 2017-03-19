@@ -13,7 +13,10 @@ class CategoriaList extends Component {
   render() {
     const categorias = this.props.categorias
     return (
-      <div>
+      <div className="tabla-categoria">
+        <Link className="agregar-categoria" to='/categoria/add'>
+          Agregar categoria
+        </Link>
         <table>
           <thead>
             <tr>
@@ -28,9 +31,7 @@ class CategoriaList extends Component {
             )}
           </tbody>
         </table>
-        <Link to='/addCategoria'>
-          Agregar categoria
-        </Link>
+        {this.props.children}
       </div>
     )
   }
